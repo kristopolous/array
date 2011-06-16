@@ -1,15 +1,14 @@
 /* Hash.c
  * 	Arbitrary depth, arbitrary size, arbitrary hash
  *
- *  (c) 2008, Christopher J. McKenzie under the terms of the
+ *  (c) 2008, 2011, Christopher J. McKenzie under the terms of the
  *      GNU Public License, incorporated herein by reference.
  */
-#include <unistd.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+#include "common.h"
 #include "hash.h"
 #include "parse.h"
 
+extern int errno;
 typedef int	Severity;
 typedef char	bool;
 
@@ -429,11 +428,13 @@ static char** dataLoadRecursive(char **start, Node*Current)
 	return start;
 }
 
+
 #define MAXTOKENS	65536
-static int dataLoadHead()
-{
+static int dataLoadHead() {
 	int fd,
 	    ret;
+
+  size_t sz;
 
 	char	*buffer,
 		**parsed;
@@ -441,24 +442,27 @@ static int dataLoadHead()
 	TRACE("dataLoadHead");
 	umask(0);
 
-	if(g_fnameflag == false)
-	{
-		chdir((const char*)getenv("HOME"));
+	if(g_fnameflag == false) {
 
-		if(stat(".array", &g_dp))
-		{
+		if(! chdir((const char*)getenv("HOME")) ) {
+      doerror();
+    }
+
+		if(stat(".array", &g_dp)) {
+
 			mkdir(".array",0755);
 		}
 
-		chdir(".array");        //assuming this is successful now       
+		if(!chdir(".array")) {        //assuming this is successful now       
+      doerror();
+    }
 	}
 
-	if(stat(g_fname, &g_dp))
-	{
+	if(stat(g_fname, &g_dp)) {
+
 		creat(g_fname, 0644);
-	}
-	else
-	{	
+
+	} else {	
 		// Create a buffer for the file
 		buffer = (char*)mmalloc(g_dp.st_size);
 		NULLCHECK(buffer);
@@ -469,8 +473,13 @@ static int dataLoadHead()
 
 		// Open the file
 		fd = open(g_fname, O_RDONLY);
+
 		// Read the whole file in
-		read(fd, buffer, g_dp.st_size);
+		sz = read(fd, buffer, g_dp.st_size);
+    if(sz != g_dp.st_size) {
+      doerror();
+    }
+
 		close(fd);
 
 		parse(buffer, parsed, MAXTOKENS);

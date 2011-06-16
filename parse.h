@@ -1,14 +1,11 @@
 /*
- *  (c) Copyright 2004, 2008 Christopher J. McKenzie under the terms of the
+ *  (c) Copyright 2004, 2008, 2011 Christopher J. McKenzie under the terms of the
  *      GNU Public License, incorporated herein by reference
  */
 #if !defined _PARSE_H_
 #define _PARSE_H_
 
-#include <stdio.h>
-#include <string.h>
-#include <sys/types.h>
-#include <stdlib.h>
+#include "common.h"
 #define TRUE  1
 #define FALSE 0
 
