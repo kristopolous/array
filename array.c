@@ -129,8 +129,9 @@ int data(char command) {
 		table_ix, 
 		arraysize, 
 		tablesize;
-	char*ptr;
-	struct ray*cur;	
+
+	char *ptr;
+	struct ray *cur;	
 
 	stat(DBASE, &g_dp);
 	fbuf = (char*)malloc(g_dp.st_size+1);	
@@ -227,8 +228,8 @@ struct ray*findray(unsigned char*name) {
 
 	for(n = 0; n < table.nmemb; n++) {	
 
-		if(!strncmp((char*)name, (const char*)table.array[n].name, m))	//Yay, found it
-		{
+    //Yay, found it
+		if(!strncmp((char*)name, (const char*)table.array[n].name, m))	{
 
 			if(m == strlen((const char*)table.array[n].name)) {
 				return(&table.array[n]);
@@ -243,7 +244,7 @@ struct ray*creatray(unsigned char*name) {
 
 	struct ray*toret;	
 
-   //realloc is needed
+  // realloc is needed
 	if((table.nmemb + 1) > closepower(table.nmemb)) { 	
 		table.array = realloc(table.array, closepower(table.nmemb)*sizeof(struct ray));
 	}
@@ -499,7 +500,7 @@ int main(int argc, unsigned char*argv[]) {
 
 				ix = m_atoi(function);
 
-        //command actually
+        // command actually
 				if(ix == 0 && *function != '0')	{
 					if(!strcmp((const char*)function, "delete")) {
 
@@ -514,7 +515,7 @@ int main(int argc, unsigned char*argv[]) {
 						error = ERR_BADCMD;
 					}
 
-          //really was an index
+          // really was an index
 				} else {
 
 					tomod = findray(array);
