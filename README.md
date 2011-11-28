@@ -68,33 +68,33 @@ With the array name, index, and value parameters, STDOUT returns nothing
 
 ### Example
 <pre>
-    $ ./array
-    $ ./array FirstList 0 value
-    $ ./array
-    1       FirstList
-    $ ./array FirstList 5 value5
-    $ ./array FirstList
-    0       value
-    1       {void}
-    2       {void}
-    3       {void}
-    4       {void}
-    5       value5
-    $ ./array FirstList 4
-    {void}
-    $ ./array FirstList 5
-    value5
-    $ ./array SecondList
-    $ ./array
-    6       FirstList
-    0       SecondList
-    $ ./array SecondList 123 456
-    $ ./array
-    6       FirstList
-    124     SecondList
-    $ ./array FirstList delete
-    $ ./array
-    124     SecondList
+$ ./array
+$ ./array FirstList 0 value
+$ ./array
+1       FirstList
+$ ./array FirstList 5 value5
+$ ./array FirstList
+0       value
+1       {void}
+2       {void}
+3       {void}
+4       {void}
+5       value5
+$ ./array FirstList 4
+{void}
+$ ./array FirstList 5
+value5
+$ ./array SecondList
+$ ./array
+6       FirstList
+0       SecondList
+$ ./array SecondList 123 456
+$ ./array
+6       FirstList
+124     SecondList
+$ ./array FirstList delete
+$ ./array
+124     SecondList
 </pre>
 # hash
 
