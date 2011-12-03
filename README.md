@@ -6,7 +6,7 @@ external dependencies
 There are two programs:
 
  * array
- * hash
+ * hash <sup>1</sup>
 
 If you have modern bash (4.0+) then you actually have pretty decent support for both of these.
 
@@ -15,6 +15,9 @@ If you are using zsh, then you do too.
 If you need something really performant for long-running services than may I suggest [redis](http://redis.io) (I've been using it for 3 years, it's great).
 
 If the above case is not you, then let's move forward.
+
+<hr>
+<sup>1</sup> Deprecated in favor of another project of mine, [ticktick](https://github.com/kristopolous/TickTick).
 
 ## Exit Codes
 
