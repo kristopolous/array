@@ -98,4 +98,4 @@ $ ./array
 </pre>
 # hash
 
- TODO
+Deprecated in favor of another project of mine, [ticktick](https://github.com/kristopolous/TickTick).
