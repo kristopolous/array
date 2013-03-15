@@ -1,8 +1,7 @@
 /* Array
  *	array management for shell scripts
  *
- * (c) Copyright 2005, 2008, 2011 Christopher J. McKenzie under the terms of the
- *  GNU Public License, incorporated herein by reference
+ * (c) Copyright 2005, 2008, 2011, 2013 Christopher J. McKenzie 
  */
 #ifndef _HASH_H_
 #define _HASH_H_

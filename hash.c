@@ -1,8 +1,7 @@
 /* Hash.c
  * 	Arbitrary depth, arbitrary size, arbitrary hash
  *
- *  (c) 2008, 2011, Christopher J. McKenzie under the terms of the
- *      GNU Public License, incorporated herein by reference.
+ *  (c) 2008, 2011, 2013 Christopher J. McKenzie 
  */
 #include "common.h"
 #include "hash.h"
